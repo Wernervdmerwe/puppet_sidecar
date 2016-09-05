@@ -5,7 +5,7 @@ class sidecar::service(
   exec { 'Register service':
     path => $path,
     command => 'graylog-collector-sidecar -service install',
-    create => '/usr/lib/systemd/system/collector-sidecar.service',
+    creates => '/usr/lib/systemd/system/collector-sidecar.service',
   }
 
   service {'collector-sidecar':
