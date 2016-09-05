@@ -22,7 +22,9 @@ class sidecar::config (
 
   # Backends will be added with order 21 
   $backend_arr.each |String $backend| {
-    include "sidecar::backends::${backend}"
+    class {"sidecar::backends::${backend}":
+      require => Concat::Fragment['Config'],
+    }
   }
 
 
