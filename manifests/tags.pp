@@ -4,7 +4,7 @@ class sidecar::tags (
 
   concat { $tagfile: ensure => 'present', }
 
-  concat::fragment { 'kernel':
+  concat::fragment { "${::hostname}_kernel":
     target  => $tagfile,
     content => "$::kernel",
     order   => '01',
