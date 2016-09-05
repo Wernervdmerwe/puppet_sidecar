@@ -9,6 +9,7 @@ class sidecar (
 
   include sidecar::tags
   include sidecar::config
+  include sidecar::service
 
   Class['sidecar::tags'] -> Class['sidecar::config']
 }
