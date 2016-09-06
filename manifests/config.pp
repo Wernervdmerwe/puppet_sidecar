@@ -6,9 +6,13 @@ class sidecar::config (
 ){
 
   # Build file
-
-  $tagsfile = file($sidecar::tagfile),
-  $taglist = split($tagsfile, ',')
+  if ! file($sidecar::tagfile) {
+    $taglist = $::kernel
+  }
+  else {
+    $tagsfile = file($sidecar::tagfile),
+    $taglist = split($tagsfile, ',')
+  }
 
   concat { $config_file: 
     ensure => 'present',
