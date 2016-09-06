@@ -5,7 +5,6 @@ class sidecar (
 
   package { ['collector-sidecar','nxlog-ce']: ensure => 'installed',  }
 
-  #include sidecar::tags
   include sidecar::config
   include sidecar::service
 

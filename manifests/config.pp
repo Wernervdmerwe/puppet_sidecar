@@ -44,25 +44,4 @@ class sidecar::config (
       require => Concat::Fragment['Config'],
     }
   }
-
-
-
-#  # Build file
-#  if ! file($sidecar::tagfile) {
-#    file { $sidecar::tagfile:
-#      ensure => 'file',
-#      content => $::kernel,
-#    }
-#  }
-#  else {
-#    $tagsfile = file($sidecar::tagfile),
-#    $taglist = split($tagsfile, ',')
-#  }
-#
-#  concat { $config_file: 
-#    ensure => 'present',
-#  }
-
-
-
 }
