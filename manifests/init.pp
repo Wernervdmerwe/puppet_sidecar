@@ -7,10 +7,10 @@ class sidecar (
     ensure => 'installed',
   }
 
-  file {$tagfile:
-    ensure => 'file',
-    content => "$::kernel",
-    onlyif => "test ! -f $tagfile"
+  exec {'Create File If Not Exist':
+    path => $path,
+    command => "echo $::kernel > $tagfile",
+    creates => $tagfile,
   }
 
   include sidecar::tags
