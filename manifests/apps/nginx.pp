@@ -4,7 +4,7 @@ class sidecar::apps::nginx {
 
   @@concat::fragment {'nginx':
     target => $sidecar::config_file,
-    content => '  - nginx',
+    content => "  - nginx\n",
     tag => 'sidecar_tags',
     order => 101
   }

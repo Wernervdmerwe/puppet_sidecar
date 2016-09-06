@@ -13,19 +13,19 @@ class sidecar::config (
       graylog_server => $graylog_server,
       graylog_port => 80,
     }),
-    order => 01,
+    order => '001',
   }
 
   concat::fragment { 'Tag start':
     target => $config_file,
     content => "tags:",
-    order => 100,
+    order => '100',
   }
 
   concat::fragment { 'Kernel Tag start':
     target => $config_file,
     content => "  - $::kernel",
-    order => 101,
+    order => '101',
   }
 
   Concat::Fragment <<| tag == 'sidecar_tags' |>>
@@ -33,7 +33,7 @@ class sidecar::config (
   concat::fragment { 'Backend start':
     target => $config_file,
     content => "backends:",
-    order => 200,
+    order => '200',
   }
 
 
