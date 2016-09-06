@@ -29,7 +29,7 @@ class sidecar::config (
     order => 101,
   }
 
-  Concat::Fragment <<| tag == 'sidecar_tags', order => 101, |>>
+  Concat::Fragment <<| tag == 'sidecar_tags' |>>
 
   concat::fragment { 'Backend start':
     target => $config_file,

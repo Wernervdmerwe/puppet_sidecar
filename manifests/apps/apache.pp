@@ -4,9 +4,9 @@ class sidecar::apps::apache{
 
   @@concat::fragment {'apache':
     target => $sidecar::tagfile,
-    content => ',apache',
+    content => '  - apache',
     tag => 'sidecar_tags',
-    order => 10
+    order => 101
   }
 
 }
