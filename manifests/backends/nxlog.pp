@@ -10,7 +10,7 @@ class sidecar::backends::nxlog (
       binary => '/usr/bin/nxlog',
       config => '/etc/graylog/collector-sidecar/generated/nxlog.conf'
     }),
-    order => 21,
+    order => 201,
   }
 
 }
