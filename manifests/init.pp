@@ -3,7 +3,7 @@ class sidecar (
   Array $backends = ['nxlog']
 ){
 
-  package { 'collector-sidecar':
+  package { ['collector-sidecar','nxlog-ce']:
     ensure => 'installed',
   }
 
