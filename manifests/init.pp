@@ -11,7 +11,10 @@ class sidecar (
     stage => first,
   }
 
-  include sidecar::tags
+  class {'sidecar::tags':
+    require => Class['sidecar::file'],
+  }
+
   include sidecar::config
   include sidecar::service
 
