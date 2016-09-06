@@ -4,7 +4,7 @@ class sidecar::apps::postgres{
 
   @@concat::fragment {'postgres':
     target => $sidecar::config_file,
-    content => "  - postgres\n",
+    content => "  - postgres \n",
     tag => 'sidecar_tags',
     order => '101'
   }

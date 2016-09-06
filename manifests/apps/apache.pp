@@ -4,7 +4,7 @@ class sidecar::apps::apache{
 
   @@concat::fragment {'apache':
     target => $sidecar::config_file,
-    content => "  - apache\n",
+    content => "  - apache \n",
     tag => 'sidecar_tags',
     order => '101'
   }

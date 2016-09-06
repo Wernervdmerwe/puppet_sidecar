@@ -18,7 +18,7 @@ class sidecar::config (
 
   concat::fragment { 'Tag start':
     target => $config_file,
-    content => "tags:",
+    content => "tags: \n",
     order => '100',
   }
 
@@ -32,7 +32,7 @@ class sidecar::config (
 
   concat::fragment { 'Backend start':
     target => $config_file,
-    content => "backends:",
+    content => "backends: \n",
     order => '200',
   }
 
