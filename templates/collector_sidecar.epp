@@ -1,7 +1,6 @@
 <%- | 
       String  $graylog_server,
       Integer $graylog_port,
-      Array   $tags,
 | -%>
 server_url: http://<%= $graylog_server %>:<%= $graylog_port %>/api/
 update_interval: 10
