@@ -1,11 +1,13 @@
 class sidecar::config (
-  $tagsfile = file($sidecar::tagfile),
   Array $backend_arr = $sidecar::backends,
   String $config_file = '/etc/graylog/collector-sidecar/collector_sidecar.yml',
   String $graylog_server = 'graylog.ics.dmz',
   Integer $graylog_port = 80
 ){
 
+  # Build file
+
+  $tagsfile = file($sidecar::tagfile),
   $taglist = split($tagsfile, ',')
 
   concat { $config_file: 
@@ -17,7 +19,6 @@ class sidecar::config (
     content => epp('sidecar/collector_sidecar.epp', {
       graylog_server => $graylog_server,
       graylog_port => 80,
-      tags => $taglist
     }),
     order => 01,
   }

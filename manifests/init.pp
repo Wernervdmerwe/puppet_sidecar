@@ -7,16 +7,9 @@ class sidecar (
     ensure => 'installed',
   }
 
-  class {'sidecar::file':
-    stage => first,
-  }
-
-  class {'sidecar::tags':
-    require => Class['sidecar::file'],
-  }
-
+  include sidecar::tags
   include sidecar::config
   include sidecar::service
 
-  Class['sidecar::file'] -> Class['sidecar::tags'] -> Class['sidecar::config']
+  Class['sidecar::tags'] -> Class['sidecar::config']
 }
