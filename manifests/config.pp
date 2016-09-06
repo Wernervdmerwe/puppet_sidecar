@@ -10,7 +10,6 @@ class sidecar::config (
 
   concat { $config_file: 
     ensure => 'present',
-    require => Exec['Create File If Not Exist'],
   }
 
   concat::fragment { 'Config':
