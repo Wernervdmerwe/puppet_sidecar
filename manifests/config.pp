@@ -7,7 +7,10 @@ class sidecar::config (
 
   # Build file
   if ! file($sidecar::tagfile) {
-    $taglist = $::kernel
+    file { $sidecar::tagfile:
+      ensure => 'file',
+      content => $::kernel,
+    }
   }
   else {
     $tagsfile = file($sidecar::tagfile),
