@@ -1,6 +1,6 @@
 class sidecar::config (
   Array $backend_arr = $sidecar::backends,
-  String $tagfile = $sidecar::tagfile
+  String $tagfile = $sidecar::tagfile,
   String $config_file = '/etc/graylog/collector-sidecar/collector_sidecar.yml',
   String $graylog_server = 'graylog.ics.dmz',
   Integer $graylog_port = 80
