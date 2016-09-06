@@ -13,8 +13,12 @@ collector_id: file:/etc/graylog/collector-sidecar/collector-id
 log_path: /var/log/graylog/collector-sidecar
 log_rotation_time: 86400
 log_max_age: 604800
-tags:
-<% $tags.flatten.each |$t| { -%>
-  - <%= $t %>
-<% } -%>
-backends:
+
+## Tags are added via puppet with order 101
+#tags:
+#<% $tags.flatten.each |$t| { -%>
+#  - <%= $t %>
+#<% } -%>
+#
+## Backends are added via puppet with order = 201
+#backends:
