@@ -27,5 +27,6 @@ class sidecar::config (
     }
   }
 
+  require => Exec['Create File If Not Exist'],
 
 }
