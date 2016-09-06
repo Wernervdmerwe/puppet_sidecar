@@ -8,7 +8,7 @@ update_interval: 10
 tls_skip_verify: false
 send_status: true
 list_log_files:
-node_id: <%= $::fqdn%>
+node_id: <%= $::fqdn %>
 collector_id: file:/etc/graylog/collector-sidecar/collector-id
 log_path: /var/log/graylog/collector-sidecar
 log_rotation_time: 86400
