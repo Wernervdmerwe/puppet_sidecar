@@ -8,5 +8,4 @@ class sidecar::file (
     creates => $tagfile,
   }
 
-   stage => first,
 }
