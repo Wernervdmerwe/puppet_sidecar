@@ -8,7 +8,8 @@ class sidecar::config (
 
   $taglist = split($tagsfile, ',')
 
-  concat { $config_file: ensure => 'present' 
+  concat { $config_file: 
+    ensure => 'present',
     require => Exec['Create File If Not Exist'],
   }
 
