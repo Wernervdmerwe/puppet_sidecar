@@ -24,7 +24,7 @@ class sidecar::config (
 
   concat::fragment { 'Kernel Tag start':
     target => $config_file,
-    content => "  - $::kernel",
+    content => "  - $::kernel \n",
     order => '101',
   }
 
