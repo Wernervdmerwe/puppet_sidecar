@@ -3,10 +3,10 @@ class sidecar::apps::apache{
   include sidecar
 
   @@concat::fragment {'apache':
-    target => $sidecar::tagfile,
-    content => ',apache',
+    target => $sidecar::config_file,
+    content => "  - apache \n",
     tag => 'sidecar_tags',
-    order => 10
+    order => '101'
   }
 
 }
