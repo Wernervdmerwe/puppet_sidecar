@@ -11,20 +11,19 @@ class sidecar::config (
   concat { $config_file: ensure => 'present' }
 
   concat::fragment { 'Config':
-    target => $config_file,
-    content => epp('sidecar/collector_sidecar.epp', {
+    target           => $config_file,
+    order            => 01,
+    content          => epp('sidecar/collector_sidecar.epp',
+    {
       graylog_server => $graylog_server,
-      graylog_port => 80,
-      tags => $taglist
+      graylog_port   => 80,
+      tags           => $taglist
     }),
-    order => 01,
   }
 
   # Backends will be added with order 21 
   $backend_arr.each |String $backend| {
-    class {"sidecar::backends::${backend}":
-      require => Concat::Fragment['Config'],
-    }
+    include "sidecar::backends::${backend}"
   }
 
 
